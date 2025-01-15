@@ -9,7 +9,7 @@ from algorithms.arrays import (
     missing_ranges,
     move_zeros,
     plus_one_v1, plus_one_v2, plus_one_v3,
-    remove_duplicates
+    remove_duplicates,
     rotate_v1, rotate_v2, rotate_v3,
     summarize_ranges,
     three_sum,
@@ -302,11 +302,12 @@ class TestPlusOne(unittest.TestCase):
 class TestRemoveDuplicate(unittest.TestCase):
 
     def test_remove_duplicates(self):
-        self.assertListEqual(remove_duplicates([1,1,1,2,2,2,3,3,4,4,5,6,7,7,7,8,8,9,10,10]))
-        self.assertListEqual(remove_duplicates(["hey", "hello", "hello", "car", "house", "house"]))
-        self.assertListEqual(remove_duplicates([True, True, False, True, False, None, None]))
-        self.assertListEqual(remove_duplicates([1,1,"hello", "hello", True, False, False]))
-        self.assertListEqual(remove_duplicates([1, "hello", True, False]))
+        self.assertListEqual(remove_duplicates([1,1,1,2,2,2,3,3,4,4,5,6,7,7,7,8,8,9,10,10]), list(range(1,11)))
+        self.assertListEqual(remove_duplicates(["hey", "hello", "hello", "car", "house", "house"]), ["hey", "hello", "car", "house"])
+        self.assertListEqual(remove_duplicates([True, True, False, True, False, None, None]), [True, False, None])
+        # 1 == True
+        self.assertListEqual(remove_duplicates([1,1,"hello", "hello", True, False, False]), [1, "hello", False])
+        self.assertListEqual(remove_duplicates([1, "hello", True, False]), [1, "hello", False])
 
 
 class TestRotateArray(unittest.TestCase):
